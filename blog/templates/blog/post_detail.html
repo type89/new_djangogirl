@@ -1,18 +1,22 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-        {% endif %}
-        {% if user.is_authenticated %}
-             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        {% endif %}
-        <h1>{{ post.title }}</h1>
-        {% load markdown_filter %}
-        <p>{{ post.text|markdown_filter|safe }}</p>
-        <!-- <p>{{ post.text|linebreaksbr }}</p> -->
-    </div>
+<div class="card">
+<h5 class="card-header"><b>{{ post.title }}</b></h5>
+
+<div class="card-body>">
+
+  {% if post.text_type == 'HTML' %}
+    <p class="card-text p-3">{{ post.text|safe }}</p>
+  {% elif post.text_type == 'Markdown' %}
+    {% load markdown_filter %}
+    <p class="card-text p-3">{{ post.text|markdown_filter|safe }}</p>
+  {% else %}
+    <p class="card-text p-3">{{ post.text|linebreaksbr }}</p>
+  {% endif %}
+  <div align="right"><a href="{% url 'post_list' %}" class="btn btn-primary m-3">トップページに戻る</a></div>
+</div>
+    <div align="right"><h6 class="card-footer mb-0">{{ post.published_date }}</h6></div>
+  </div>
+  <p>
 {% endblock %}
