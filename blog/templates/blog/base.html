@@ -13,7 +13,33 @@
         <title>New Momopi's Blog</title>
     </head>
     <body>
-        <div class="jumbotron">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">New Momopi's Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/about/">About<span class="sr-only">(現位置)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tag</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+                <a class="dropdown-item" href="#">リンク1</a>
+                <a class="dropdown-item" href="#">リンク2</a>
+                <a class="dropdown-item" href="#">リンク3</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="search" placeholder="検索..." aria-label="検索...">
+          </form>
+        </div>
+      </nav>
+      </nav>
+        <!--<div class="jumbotron">
           {% if user.is_authenticated %}
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
           {% endif %}
@@ -21,7 +47,8 @@
             <h1><a href="/">New Momopi's Blog</a></h1>
             </div>
             <p class="lead">いろいろな開発に挑戦してみるブログです</p>
-        </div>
+        </div>-->
+        <p>
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
