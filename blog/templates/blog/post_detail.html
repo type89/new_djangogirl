@@ -5,6 +5,7 @@
 <h5 class="card-header"><b>{{ post.title }}</b></h5>
 
 <div class="card-body>">
+  <p class="card-text p-3">Tags: {{ post.tags.all|join:", " }}</p>
 
   {% if post.text_type == 'HTML' %}
     <p class="card-text p-3">{{ post.text|safe }}</p>

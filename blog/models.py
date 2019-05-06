@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from taggit.managers import TaggableManager
 
 
 class Post(models.Model):
@@ -10,7 +11,8 @@ class Post(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
-    text_type = models.CharField(max_length=20, null=True)
+    text_type = models.CharField(max_length=20, blank=True, null=True)
+    tags = TaggableManager()    # タグ用フィールド
 
     def publish(self):
         self.published_date = timezone.now()
