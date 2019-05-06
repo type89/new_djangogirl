@@ -10,7 +10,7 @@
   {% if post.text_type == 'HTML' %}
     <p class="card-text p-3">{{ post.text|safe }}</p>
   {% elif post.text_type == 'Markdown' %}
-    <p class="card-text p-3">{{ post.get_message_as_markdown }}}</p>
+    <p class="card-text p-3">{{ post.get_message_as_markdown }}</p>
 
   {% else %}
     <p class="card-text p-3">{{ post.text|linebreaksbr }}</p>
