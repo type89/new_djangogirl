@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from taggit.managers import TaggableManager
-
+from django.utils.html import mark_safe
+from markdown import markdown
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -13,6 +14,9 @@ class Post(models.Model):
             blank=True, null=True)
     text_type = models.CharField(max_length=20, blank=True, null=True)
     tags = TaggableManager()    # タグ用フィールド
+
+    def get_message_as_markdown(self):
+        return mark_safe(markdown(self.text, safe_mode='escape'))
 
     def publish(self):
         self.published_date = timezone.now()
