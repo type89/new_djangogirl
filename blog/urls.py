@@ -3,6 +3,7 @@ from . import views
 #from django.conf.urls import url, include
 
 urlpatterns = [
+    path('', views.tag_list, name='tag_list'),
     path('', views.post_list, name='post_list'),
     #url(r'^tag/(?P[-w]+)/$', views.post_list, name='post_list_by_tag'),
     #path('tag/(?P[-w]+)/', views.post_list, name='post_list_by_tag'),
