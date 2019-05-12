@@ -30,9 +30,10 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tag</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-                <a class="dropdown-item" href="#">リンク1</a>
-                <a class="dropdown-item" href="#">リンク2</a>
-                <a class="dropdown-item" href="#">リンク3</a>
+                {% for tagitem in taglist %}
+                  <a class="dropdown-item" href="/tag/">{{ tagitem }}</a>
+                {% endfor %}
+                <a class="dropdown-item" href="/tag/">test-manual</a>
               </div>
             </li>
           </ul>

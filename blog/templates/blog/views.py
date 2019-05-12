@@ -11,7 +11,7 @@ def post_list(request):
     taglist = Tag.objects.all()
     for tagitem in taglist:
         print("tagitem --> " + str(tagitem))
-    return render(request, 'blog/post_list.html', {'posts': posts}, {taglist})
+    return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
