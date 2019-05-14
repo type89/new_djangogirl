@@ -5,13 +5,12 @@ from .forms import PostForm
 from taggit.models import Tag
 #from .forms import SearchForm
 
-
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     taglist = Tag.objects.all()
     for tagitem in taglist:
         print("tagitem --> " + str(tagitem))
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'blog/post_list.html', {'posts': posts, 'taglist': taglist})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
