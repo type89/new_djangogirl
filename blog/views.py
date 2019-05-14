@@ -48,8 +48,8 @@ def about(request):
 
 def tagview(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    tag_slug='arduino'
-    tag = get_object_or_404(Tag, slug=tag_slug)
+    tag_name='django'
+    tag = get_object_or_404(Tag, name=tag_name)
     print("tag --> " + str(tag))
     posts = posts.filter(tags__in=[tag])
     for item in posts:
