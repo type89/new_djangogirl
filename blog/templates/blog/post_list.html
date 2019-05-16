@@ -16,17 +16,17 @@
       <a class="dropdown-item" href="/tag/">{{ tag }}</a>
     {% endfor %}
   </div>
-    {% for post in posts %}
+    {% for item in Post %}
 
     <div class="card">
-      <h5 class="card-header"><b>{{ post.title }}</b></h5>
+      <h5 class="card-header"><b>{{ item.title }}</b></h5>
 
       <div class="card-body>">
-        <p class="card-text p-2">Tags: {{ post.tags.all|join:", " }}</p>
-        <p class="card-text p-3">{{ post.text|linebreaksbr|truncatechars:30 }}</p>
-            <div align="right"><a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary m-3">記事を読む</a></div>
+        <p class="card-text p-2">Tags: {{ item.tags.all|join:", " }}</p>
+        <p class="card-text p-3">{{ item.text|linebreaksbr|truncatechars:30 }}</p>
+            <div align="right"><a href="{% url 'post_detail' pk=item.pk %}" class="btn btn-primary m-3">記事を読む</a></div>
       </div>
-      <div align="right"><h6 class="card-footer mb-0">{{ post.published_date }}</h6></div>
+      <div align="right"><h6 class="card-footer mb-0">{{ item.published_date }}</h6></div>
     </div>
     <p>
 

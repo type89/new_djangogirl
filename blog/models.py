@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 from django.utils import timezone
 from taggit.managers import TaggableManager
 from django.utils.html import mark_safe
