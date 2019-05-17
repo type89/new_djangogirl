@@ -1,21 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<div class="dropdown">
-  <button type="button" id="dropdown1"
-      class="btn btn-secondary dropdown-toggle"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false">
-    Tag-List
-  </button>
-  <p>
 
-  <div class="dropdown-menu" aria-labelledby="tag">
-    {% for tag in taglist %}
-      <a class="dropdown-item" href="/tag/">{{ tag }}</a>
-    {% endfor %}
-  </div>
     {% for item in Post %}
 
     <div class="card">

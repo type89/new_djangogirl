@@ -4,6 +4,7 @@ from .models import Post
 from .forms import PostForm, TagForm
 from taggit.models import Tag
 from django.views.generic import ListView, DetailView, CreateView
+from django.http import HttpResponse
 #from .forms import SearchForm
 
 #def post_list(request):
@@ -26,11 +27,14 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
 
-class TagSelectView(CreateView):
-    model = Tag
-    form_class = TagForm
-    template_name = "blog/form.html"
-    success_url = ""  # 成功時にリダイレクトするURL
+def tagform(request):
+    return HttpResponse(str(TagForm()))
+
+#class TagSelectView(CreateView):
+    #model = Tag
+    #form_class = TagForm
+    #template_name = "blog/form.html"
+    #success_url = ""  # 成功時にリダイレクトするURL
 
 def post_new(request):
     if request.method == "POST":

@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from blog.views import PostDetailView, PostListView, TagSelectView
+from blog.views import PostDetailView, PostListView
 #from django.conf.urls import url, include
 
 urlpatterns = [
@@ -14,6 +14,7 @@ urlpatterns = [
     path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('post/new', views.post_new, name='post_new'),
-    path('tag/', views.TagSelectView.as_view(), name='tag'),
+    #path('tag/', views.TagSelectView.as_view(), name='tag'),
+    path('tag/', views.tagform, name='tag'),
     #path('tag/<str:tag_slug>', views.tagview, name='tag'),
 ]
