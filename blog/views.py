@@ -30,7 +30,8 @@ class PostDetailView(DetailView):
 def tagform(request):
     if request.method == 'POST':
         selected_tag = TagForm(request.POST)
-        print(selected_tag)
+        #print(selected_tag)
+        print("Select ===> " + selected_tag.data['taglist'])
     else:
         selected_tag = TagForm()
     #tag_select = TagForm()
