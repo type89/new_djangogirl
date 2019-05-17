@@ -1,12 +1,13 @@
-{% extends "base.html" %}
+{% extends 'blog/base.html' %}
 
 {% block content %}
 
     <form method="post">
-    {% csrf_token %}
-
-    {{ form }}
-    <button type="submit">save</button>
+      {% csrf_token %}
+    {{ selected_tag }}
+    <div>
+	  <input class="btn btn-primary" type="submit" value="Submit">
+    </div>
     </form>
 
 {% endblock %}

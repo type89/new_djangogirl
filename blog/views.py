@@ -28,7 +28,15 @@ class PostDetailView(DetailView):
     template_name = 'blog/post_detail.html'
 
 def tagform(request):
-    return HttpResponse(str(TagForm()))
+    if request.method == 'POST':
+        selected_tag = TagForm(request.POST)
+        print(selected_tag)
+    else:
+        selected_tag = TagForm()
+    #tag_select = TagForm()
+    #print(selected_tag)
+    #return HttpResponse(str(TagForm()))
+    return render(request, 'blog/form.html',{'selected_tag':selected_tag})
 
 #class TagSelectView(CreateView):
     #model = Tag
@@ -65,16 +73,3 @@ def post_edit(request, pk):
 
 def about(request):
     return render(request, 'blog/about.html',{})
-
-def tagview(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    tag_name='django'
-    tag = get_object_or_404(Tag, name=tag_name)
-    print("tag --> " + str(tag))
-    posts = posts.filter(tags__in=[tag])
-    for item in posts:
-        print("title --> " + str(item.title))
-    #post = get_object_or_404(Post, pk=pk)
-
-    #post = posts.objects.filter(field=filter_tag)
-    return render(request, 'blog/tag_post_list.html', {'posts': posts})
