@@ -31,7 +31,10 @@ def tagform(request):
     if request.method == 'POST':
         selected_tag = TagForm(request.POST)
         #print(selected_tag)
-        print("Select ===> " + selected_tag.data['taglist'])
+        print("Selected_tag_id ===> " + selected_tag.data['taglist'])
+        id_num = selected_tag.data['taglist']
+        tag_slug = Tag.objects.get(pk=id_num)
+        print("Selected_tag_name ===> " + str(tag_slug.slug))
     else:
         selected_tag = TagForm()
     #tag_select = TagForm()
