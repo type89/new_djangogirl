@@ -35,6 +35,12 @@ def tagform(request):
         id_num = selected_tag.data['taglist']
         tag_slug = Tag.objects.get(pk=id_num)
         print("Selected_tag_name ===> " + str(tag_slug.slug))
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        print("tag --> " + str(tag))
+        posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        posts = posts.filter(tags__in=[tag])
+        return render(request, 'blog/post_list.html', {'Post': posts})
+
     else:
         selected_tag = TagForm()
     #tag_select = TagForm()
