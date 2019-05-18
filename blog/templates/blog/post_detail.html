@@ -5,8 +5,8 @@
 <h5 class="card-header"><b>{{ post.title }}</b></h5>
 
 <div class="card-body>">
-  <p class="card-text p-1">Tags: {{ post.tags.all|join:", " }}</p>
-  <hr>
+  <p class="card-text p-1">Tags: {{ post.tags.all|join:", " }}
+  <br> Published: {{ post.published_date }}</p></div>
 
   {% if post.text_type == 'HTML' %}
     <p class="card-text p-3">{{ post.text|safe }}</p>
@@ -16,9 +16,6 @@
   {% else %}
     <p class="card-text p-3">{{ post.text|linebreaksbr }}</p>
   {% endif %}
-  <div align="right"><a href="{% url 'post_list' %}" class="btn btn-primary m-3">トップページに戻る</a></div>
-</div>
-    <div align="right"><h6 class="card-footer mb-0">{{ post.published_date }}</h6></div>
-  </div>
+  <div align="right"><a href="{% url 'post_list' %}" class="btn btn-primary m-3">Back</a></div>
   <p>
 {% endblock %}

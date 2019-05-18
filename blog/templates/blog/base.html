@@ -4,10 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <!-- <title>Django Girls blog</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
         <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <title>New Momopi's Blog</title>
@@ -35,23 +31,16 @@
         </div>
       </nav>
       </nav>
-        <!--<div class="jumbotron">
-          {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-          {% endif %}
-            <div class="blog_title">
-            <h1><a href="/">New Momopi's Blog</a></h1>
-            </div>
-            <p class="lead">いろいろな開発に挑戦してみるブログです</p>
-        </div>-->
         <p>
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
+        <div class="row no-gutters">
+        <div class="col-3 d-none d-lg-block"></div>
+        <div class="col-12 col-lg-6">
+                <div class="content container">
                 {% block content %}
                 {% endblock %}
                 </div>
-            </div>
+        <div class="col-3 d-none d-lg-block"></div>
+        </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
