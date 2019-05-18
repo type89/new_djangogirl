@@ -8,8 +8,8 @@
       <h5 class="card-header"><b><a href="{% url 'post_detail' pk=item.pk %}">{{ item.title }}</h5></a></b>
 
       <div class="card-body>">
-        <p class="card-text p-2"> Tags: {{ item.tags.all|join:", " }}
-        <br> Published: {{ item.published_date }}</p></div>
+        <p class="card-text p-2">&emsp;Tags: {{ item.tags.all|join:", " }}
+        <br>&emsp;Published: {{ item.published_date }}</p></div>
         <!--<p class="card-text p-3">{{ item.text|linebreaksbr|truncatechars:30 }}</p>-->
             <!--<div align="right">{{ item.published_date }}<a href="{% url 'post_detail' pk=item.pk %}" class="btn btn-primary m-3">記事を読む</a></div>-->
       <!--<div align="right"><h6 class="card-footer mb-0">{{ item.published_date }}</h6></div>-->
