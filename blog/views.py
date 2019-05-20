@@ -3,21 +3,22 @@ from django.utils import timezone
 from .models import Post
 from .forms import PostForm, TagForm
 from taggit.models import Tag
-from django.views.generic import ListView, DetailView, CreateView
+#from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import DetailView, CreateView
 from django.http import HttpResponse
 #from .forms import SearchForm
 
-#def post_list(request):
-    #posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+def post_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     #taglist = Tag.objects.all()
     #for tag in taglist:
         #print(tag)
-    #return render(request, 'blog/post_list.html', {'posts': posts, 'taglist': taglist})
+    return render(request, 'blog/post_list.html', {'Post': posts})
 
-class PostListView(ListView):
-    template_name = 'blog/post_list.html'
-    context_object_name = 'Post'
-    queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+#class PostListView(ListView):
+    #template_name = 'blog/post_list.html'
+    #context_object_name = 'Post'
+    #queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 #def post_detail(request, pk):
     #post = get_object_or_404(Post, pk=pk)

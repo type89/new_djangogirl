@@ -1,12 +1,13 @@
 from django.urls import path
 from . import views
-from blog.views import PostDetailView, PostListView
+#from blog.views import PostDetailView, PostListView
+from blog.views import PostDetailView
 #from django.conf.urls import url, include
 
 urlpatterns = [
     #path('base/', views.tag_list, name='base'),
-    #path('', views.post_list, name='post_list'),
-    path('', views.PostListView.as_view(), name='post_list'),
+    path('', views.post_list, name='post_list'),
+    #path('', views.PostListView.as_view(), name='post_list'),
     #url(r'^tag/(?P[-w]+)/$', views.post_list, name='post_list_by_tag'),
     #path('tag/(?P[-w]+)/', views.post_list, name='post_list_by_tag'),
     path('about/', views.about, name='about'),
