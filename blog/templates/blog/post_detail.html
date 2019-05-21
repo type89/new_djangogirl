@@ -1,24 +1,26 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<div class="card">
-<h5 class="card-header"><b>{{ post.title }}</b></h5>
+<!--<div class="card">
+<h5 class="card-header"><b>{{ post.title }}</b></h5>-->
 
 <style type="text/css">
 
 table, td, th {
-border: 0px #2b2b2b solid;
+border: 0px solid;
+margin:0px
 }
 
 td, th {
-padding: 12px 20px;
+padding: 10px 3px;
 }
 
 </style>
-<div class="card-body>">
-  <p class="card-text p-3">&ensp;Tags: {{ post.tags.all|join:", " }}
-  <br>&ensp;Published: {{ post.published_date }}</p></div>
-  <table border=1 p=5>
+  <table>
+  <tr><td bgcolor="lavender">
+    &ensp;<b>Tags: {{ post.tags.all|join:", " }}
+    <br>&ensp;Published: {{ post.published_date }}</b>
+  </td></tr>
   <tr><td>
   {% if post.text_type == 'HTML' %}
     <p class="card-text p-0">{{ post.text|safe }}</p>
@@ -29,6 +31,6 @@ padding: 12px 20px;
     <p class="card-text p-3">{{ post.text|linebreaksbr }}</p>
   {% endif %}
   <div align="right"><a href="{% url 'post_list' %}" class="btn btn-primary m-3">Back</a></div>
-  <p>
+  <br>
   </td></tr></table>
 {% endblock %}
