@@ -19,10 +19,12 @@ padding: 10px 3px;
 </style>
   <table>
   <tr><td bgcolor="lavender">
-    &ensp;<b>Tags: {{ post.tags.all|join:", " }}
-    <br>&ensp;Published: {{ post.published_date }}</b>
+    <b>&ensp;{{ post.title }}</b>
   </td></tr>
-  <tr><td>
+  <tr><td><font color="dimgray">
+    &ensp;Tags: {{ post.tags.all|join:", " }}
+    <br>&ensp;Published: {{ post.published_date }}</font color>
+    <br>
   {% if post.text_type == 'HTML' %}
     <p class="card-text p-0">{{ post.text|safe }}</p>
   {% elif post.text_type == 'Markdown' %}
